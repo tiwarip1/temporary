@@ -12,6 +12,12 @@
 #include "walkring_output.h"
 #include "walkring_timestep.h"
 #include "parameters.h"
+#include <mpi.h>
+
+using namespace std;
+
+#define MTAG1 1
+#define MTAG2 2
 
 // the main function drives the simulation
 int main(int argc, char *argv[]) 
@@ -51,12 +57,35 @@ int main(int argc, char *argv[])
   // Initial output to screen
   walkring_output(file, 0, time, N, w, outputcols);
 
+  int rank,size;
+
+  MPI_Status status;
+  MPI_Init(&argc,&argv);
+  MPI_Comm_size(MPI_COMM_WORLD,&size);
+  MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
-    // Compute next time point
+    if(rank==0){
+      for(rank=1;rank<size;rank++){
+	MPI_Send(&w,Z,MPI_INT,rank,MTAG1,MPI_COMM_WORLD);
+      }
+    }
+    else{
+      MPI_Recv(&w,Z,MPI_INT,0,MTAG1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+    }
     walkring_timestep(w, N, p);
 
+    if(rank==0){
+      for(rank=1;rank<size;rank++){
+	MPI_Recv(&w,Z,MPI_INT,rank,MTAG2,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+      }
+    }
+    else{
+      MPI_Send(&w,Z,MPI_INT,0,MTAG2,MPI_COMM_WORLD);
+    }
+    
     // Update time
     time += dt;
 
@@ -64,10 +93,10 @@ int main(int argc, char *argv[])
     if (step % outputEvery == 0 and step > 0)      
       walkring_output(file, step, time, N, w, outputcols);
   }
-  
+  MPI_Finalize();
   // Close file
   walkring_output_finish(file);
-
+  //MPI_Finalize();
   // All done
   return 0;
 }
