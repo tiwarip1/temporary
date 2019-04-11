@@ -76,13 +76,7 @@ int main(int argc, char *argv[])
   // Time evolution
   
   for (int step = 1; step <= numSteps; step++) {
-    /*
-    if(rank==0){
-      for(int thread=1;thread<size;thread++) MPI_Send(w.data(),array_size,MPI_INT,thread,1,MPI_COMM_WORLD);
-      }
-    else{
-            MPI_Recv(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);}    
-    */
+    
     walkring_timestep(w_buf, N, p);
   
     // Update time
@@ -90,12 +84,11 @@ int main(int argc, char *argv[])
 
     //MPI_Gather(w.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);    // Periodically add data to the file
     if (step % outputEvery == 0 and step > 0)      {
-      //if(rank!=0) MPI_Send(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD);
-      //else MPI_Recv(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-      MPI_Gather(w_buf.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
-      if(rank == 0)
+       MPI_Gather(w_buf.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
+      if(rank == 0 ) 
 	walkring_output(file, step, time, N, w, outputcols);
     }}
+  
   //MPI_Gather(w.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
   //walkring_output(file, step, time, N, w, outputcols);
   
@@ -103,7 +96,8 @@ int main(int argc, char *argv[])
     // Close file
     walkring_output_finish(file);
   MPI_Finalize();
-  // All done
+  
+// All done
   return 0;
 }
 
