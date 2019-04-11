@@ -67,25 +67,12 @@ int main(int argc, char *argv[])
   // Time evolution
   for (int step = 1; step <= numSteps; step++) {
 
-    if(rank==0){
-      for(rank=1;rank<size;rank++){
-	MPI_Send(&w,Z,MPI_INT,rank,MTAG1,MPI_COMM_WORLD);
-      }
-    }
-    else{
-      MPI_Recv(&w,Z,MPI_INT,0,MTAG1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-    }
+    MPI_Scatter(w.data(),Z,MPI_INT,w.data(),Z,MPI_INT,1,MPI_COMM_WORLD);
+
     walkring_timestep(w, N, p);
 
-    if(rank==0){
-      for(rank=1;rank<size;rank++){
-	MPI_Recv(&w,Z,MPI_INT,rank,MTAG2,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-      }
-    }
-    else{
-      MPI_Send(&w,Z,MPI_INT,0,MTAG2,MPI_COMM_WORLD);
-    }
-    
+    MPI_Gather(w.data(),Z,MPI_INT,w.data(),Z,MPI_INT,1,MPI_COMM_WORLD);
+  
     // Update time
     time += dt;
 
