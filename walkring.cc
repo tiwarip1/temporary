@@ -44,19 +44,6 @@ int main(int argc, char *argv[])
   const double p = D*dt/pow(dx,2);       // probability to hop left or right
   const int outputcols = 48;             // number of columns for sparkline output
     
-  // Allocate walker data
-  rarray<int,1> w(Z);
-  // Setup initial conditions for w
-  w.fill(N/2);
-   // Setup initial time
-  double time = 0.0;
-
-  // Open a file for data output
-  std::ofstream file;
-  walkring_output_init(file, datafile);  
-  // Initial output to screen
-  walkring_output(file, 0, time, N, w, outputcols);
-
   int rank,size;
 
   MPI_Status status;
@@ -64,26 +51,58 @@ int main(int argc, char *argv[])
   MPI_Comm_size(MPI_COMM_WORLD,&size);
   MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
+  // Allocate walker data
+  rarray<int,1> w(Z);
+  if(rank == 0)
+    // Setup initial conditions for w
+    w.fill(N/2);
+  // Setup initial time
+  double time = 0.0;
+
+  // Open a file for data output
+  std::ofstream file;
+  if(rank == 0)
+  {
+    walkring_output_init(file, datafile);  
+    // Initial output to screen
+    walkring_output(file, 0, time, N, w, outputcols);
+  }
+  
+  int array_size = Z/size;
+
+  rarray<int, 1> w_buf(array_size);
+
+  MPI_Scatter(w.data(),array_size,MPI_INT,w_buf.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
   // Time evolution
+  
   for (int step = 1; step <= numSteps; step++) {
-
-    MPI_Scatter(w.data(),Z,MPI_INT,w.data(),Z,MPI_INT,1,MPI_COMM_WORLD);
-
-    walkring_timestep(w, N, p);
-
-    MPI_Gather(w.data(),Z,MPI_INT,w.data(),Z,MPI_INT,1,MPI_COMM_WORLD);
+    /*
+    if(rank==0){
+      for(int thread=1;thread<size;thread++) MPI_Send(w.data(),array_size,MPI_INT,thread,1,MPI_COMM_WORLD);
+      }
+    else{
+            MPI_Recv(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);}    
+    */
+    walkring_timestep(w_buf, N, p);
   
     // Update time
     time += dt;
 
-    // Periodically add data to the file
-    if (step % outputEvery == 0 and step > 0)      
-      walkring_output(file, step, time, N, w, outputcols);
-  }
+    //MPI_Gather(w.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);    // Periodically add data to the file
+    if (step % outputEvery == 0 and step > 0)      {
+      //if(rank!=0) MPI_Send(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD);
+      //else MPI_Recv(w.data(),array_size,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+      MPI_Gather(w_buf.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
+      if(rank == 0)
+	walkring_output(file, step, time, N, w, outputcols);
+    }}
+  //MPI_Gather(w.data(),array_size,MPI_INT,w.data(),array_size,MPI_INT,1,MPI_COMM_WORLD);
+  //walkring_output(file, step, time, N, w, outputcols);
+  
+  if (rank == 0)
+    // Close file
+    walkring_output_finish(file);
   MPI_Finalize();
-  // Close file
-  walkring_output_finish(file);
-  //MPI_Finalize();
   // All done
   return 0;
 }

@@ -1,0 +1,91 @@
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+   Step   Time    Walltime(s) Profile
+  25000   5.0000     3.3450   ▁▁▁▁▁▁▁▁▁▁▁▁▁▂▂▃▄▄▅▅▆▇▆█▇▆▇▆▄▄▅▃▃▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁
+  50000  10.0000     5.2028   ▁▁▁▁▁▁▂▂▂▂▃▃▂▄▃▅▅▅▅█▅▆▆▇▆▇▇▆▇▆▆▄▅▄▄▃▃▂▂▂▂▂▁▁▂▁▁▁
+  75000  15.0000     7.0607   ▁▂▂▃▁▃▂▂▃▃▃▄▃▄▅▆▅▆▆▅▆▆█▆▇▇▆▆▅▅▆▅▆▄▅▅▃▄▂▃▂▃▂▂▂▂▂▁
+ 100000  20.0000     8.9186   ▂▂▂▃▂▃▃▃▃▃▄▅▄▄▄▄▄▄▅▅▆█▇▇▅▆▆▇▄▄▄▆▅▄▄▅▃▄▄▃▃▂▃▂▃▂▃▂
+ 125000  25.0000    10.7766   ▃▂▄▃▄▃▄▄▄▄▆▅▅▅▅▆▆▆▅▅▅▇▆▆▆▆▅█▆▇▅▅▆▆▅▄▅▄▅▄▃▄▄▄▃▃▃▃
+ 150000  30.0000    12.6346   ▃▄▄▄▅▄▄▄▃▆▅▅▅▃▅▅▆▆▆▅▆▅▅▆▆▆▅▆▄▇█▅▅▅▅▅▆▅▃▄▄▃▄▄▃▄▃▄
+ 175000  35.0000    14.4927   ▅▅▄▅▅▄▅▅▇▅▆▅▅▅▆▆▇▇▆▇▆▇▇▇▆█▇▆▅▇▇▆▆▇▆▇▅▅▅▅▅▅▅▅▅▃▅▅
+ 200000  40.0000    16.3508   ▅▃▄▅▅▃▅▄▅▄▄▆▅▅▆▄▅▆▅▇▅▅▇▅▆▅█▆▆▇▆▅▅▅▅▆▅▅▆▄▄▅▅▅▄▅▅▅
+ 225000  45.0000    18.2088   ▄▅▅▅▅▅▄▅▅▅▆▅▆▆▅▆▅▆▅▆█▇▇▆▇▇▇▆▆▆▆▆▇▅▅▆▆▄▅▆▆▆▆▆▅▅▄▆
+ 250000  50.0000    20.0674   ▅▅▄▅▅▅▄▄▄▆▆▄▄▄▅▄▆▄▆▅▅█▆▆▆▆▅▆▅▆▅▆▅▅▅▅▅▄▄▅▄▄▅▆▄▅▅▄
+ 275000  55.0000    21.9306   ▄▅▅▆▅▅▆▆▆▆▅▅▆▆▇▇▆▆▅▅█▅▅▇▇▆▆▅▇▆▆▇▇▆▅▆▆▅▇▅▇▅▄▅▆▆▅▆
+ 300000  60.0000    23.7886   ▅▆▅▄▄▅▆█▅▅▆▅▅▅▅▇▆▅▆▆▆▆▆▅▆▇▇▅▆▆▅▅▇▅▆▆▅▆▅▆▄▆▅▆▄▄▅▅
+ 325000  65.0000    25.6468   ▅▆▆▇▅▆▅▅▆▆▇█▆▆▆▆▆▆▇▅▇▇▇▆▇▆▅▆█▇▇▆▆▆▆▇▅▅▆▆▆▅▇▇▆▇▆▄
+ 350000  70.0000    27.5048   ▄▆▅▅▆█▅▆▆▇▆▆▆▆▆▅▅▅▅▇▅▇▇▆▄▇▆▄▆▆▆▆▅▇▅▅▄▆▅▄▅▇▅▆▆▆▆▄
+ 375000  75.0000    29.3628   ▅▅▆▆▆▅▇▆▅█▇▆▆▆▆▅▇▅▅▅▅▇▆▆▅█▅▅▆▆▆▆▆▇▇▄▅▅▆▆▆▅▄▅▅▆▆▆
+ 400000  80.0000    31.2208   ▆▅▅▅▆▅▆▆▆▇▇▇▆▅▆▆▇▇▆▅▆▅▇█▆▆▆▆▆█▅▆▅▆▅▆▇▇▅▅▇▅▅▅▅▆▆▇
+ 425000  85.0000    33.0784   ▆▆▅▅▇▅▅▇▆▇▅█▆▇▆▆▆▆▆▆▆▇▇▅▇▆▇▇▅▅▆▆▇▆▆▇▆▇▆▅▆▅▅▇▅▆▆▆
+ 450000  90.0000    34.9364   ▅▄▄▆▅▅▆▆▆▅▅▄▇▅█▇▅▅▅▆▆▆█▆▅▅▆▆▄▆▅▅▆▅▆▆▆▇▆▆▅▆▆▆▇▆▅▅
+ 475000  95.0000    36.7943   ▆▅▅▆▅▆▆▄▇▆▆▆▆▄▆▇▆▆▅▆▅▅▆▆▆▅▅▆▅▇▆▆▇▅█▇▆▅▇▆▅▆▆▆▆▅▄▅
+ 500000 100.0000    38.6525   ▅▅▆▅▄▆▅▆▅▅▆▅▄▅▅▆▆▅█▄▅▅▇▄▅▆▅▅▇▄▅▇▅▆▇▅▆▅▆▇▅▆▅▄▅▅▄▅
+[1555007564.973611] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c23ff8b60 was not returned to mpool mm_recv_desc
+[1555007564.973667] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c23ffabe0 was not returned to mpool mm_recv_desc
+[1555007564.973683] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c23ffcc60 was not returned to mpool mm_recv_desc
+[1555007564.973698] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c23ffece0 was not returned to mpool mm_recv_desc
+[1555007564.973712] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24000d60 was not returned to mpool mm_recv_desc
+[1555007564.973729] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24002de0 was not returned to mpool mm_recv_desc
+[1555007564.973742] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24004e60 was not returned to mpool mm_recv_desc
+[1555007564.973755] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24006ee0 was not returned to mpool mm_recv_desc
+[1555007564.973768] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24008f60 was not returned to mpool mm_recv_desc
+[1555007564.973780] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2400afe0 was not returned to mpool mm_recv_desc
+[1555007564.973793] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2400d060 was not returned to mpool mm_recv_desc
+[1555007564.973805] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2400f0e0 was not returned to mpool mm_recv_desc
+[1555007564.973818] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24011160 was not returned to mpool mm_recv_desc
+[1555007564.973830] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c240131e0 was not returned to mpool mm_recv_desc
+[1555007564.973842] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24015260 was not returned to mpool mm_recv_desc
+[1555007564.973855] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c240172e0 was not returned to mpool mm_recv_desc
+[1555007564.973867] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c24019360 was not returned to mpool mm_recv_desc
+[1555007564.973879] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2401b3e0 was not returned to mpool mm_recv_desc
+[1555007564.973891] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2401d460 was not returned to mpool mm_recv_desc
+[1555007564.973903] [teach02:28191:0]          mpool.c:38   UCX  WARN  object 0x7f9c2401f4e0 was not returned to mpool mm_recv_desc
+
+scontrol show jobid 45845
+JobId=45845 JobName=pranjal16
+   UserId=phy1610student022(1901422) GroupId=teachphy1610(1900004) MCS_label=N/A
+   Priority=308967 Nice=0 Account=teach QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:42 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2019-04-11T14:32:02 EligibleTime=2019-04-11T14:32:02
+   StartTime=2019-04-11T14:32:03 EndTime=2019-04-11T14:32:45 Deadline=N/A
+   PreemptTime=None SuspendTime=None SecsPreSuspend=0
+   LastSchedEval=2019-04-11T14:32:03
+   Partition=compute AllocNode:Sid=teach01:2793
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=teach02
+   BatchHost=teach02
+   NumNodes=1 NumCPUs=16 NumTasks=16 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=16,node=1,billing=16
+   Socks/Node=* NtasksPerN:B:S:C=16:0:*:1 CoreSpec=*
+   MinCPUsNode=16 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   Gres=(null) Reservation=(null)
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/fs1/home/t/teachphy1610/phy1610student022/temporary/parallel.slurm
+   WorkDir=/gpfs/fs1/home/t/teachphy1610/phy1610student022/temporary
+   StdErr=/gpfs/fs1/home/t/teachphy1610/phy1610student022/temporary/diff_16.txt
+   StdIn=/dev/null
+   StdOut=/gpfs/fs1/home/t/teachphy1610/phy1610student022/temporary/diff_16.txt
+   Power=
+
+sacct -j 45845
+       JobID    JobName    Account    Elapsed  MaxVMSize     MaxRSS  SystemCPU    UserCPU ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- ---------- ---------- -------- 
+45845         pranjal16      teach   00:00:42                        00:06.204  09:59.427      0:0 
+45845.batch       batch      teach   00:00:42  11937932K   1028484K  00:06.204  09:59.427      0:0 
